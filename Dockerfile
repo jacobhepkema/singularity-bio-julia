@@ -13,7 +13,7 @@ ENV PATH $JULIA_PATH/bin:$PATH
 
 RUN mkdir -p "$JULIA_DEPOT_PATH"
 
-RUN julia -e 'using Pkg; Pkg.add(["Dates", "Automa", "Parsers", "PooledArrays", "WeakRefStrings", "FilePathsBase", "LazyArrays", "Libdl", "Mmap", "CategoricalArrays", "Missings", "InvertedIndices", "Tables", "TableTraits", "IteratorInterfaceExtensions", "DataAPI", "Unicode", "SortingAlgorithms", "Reexport", "TextWrap", "Compat", "Blosc", "ArgParse", "DataFrames", "CSV", "Profile", "Random", "Statistics", "HDF5", "Bio", "BioSequences", "DelimitedFiles"])'
+RUN julia -e 'using Pkg; Pkg.add(["Dates", "Automa", "BioCore", "Parsers", "PooledArrays", "WeakRefStrings", "FilePathsBase", "LazyArrays", "Libdl", "Mmap", "CategoricalArrays", "Missings", "InvertedIndices", "Tables", "TableTraits", "IteratorInterfaceExtensions", "DataAPI", "Unicode", "SortingAlgorithms", "Reexport", "TextWrap", "Compat", "Blosc", "ArgParse", "DataFrames", "CSV", "Profile", "Random", "Statistics", "HDF5", "Bio", "BioSequences", "DelimitedFiles"])'
 
 ENV COMPILEFOLDER /opt/julia/compiled/v1.2/
 
