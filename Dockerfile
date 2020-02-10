@@ -24,7 +24,7 @@ RUN mkdir -p "$COMPILEFOLDER/ArgParse" && \
     mkdir -p "$COMPILEFOLDER/CSV" && \
     mkdir -p "$COMPILEFOLDER/Statistics" && \
     mkdir -p "$COMPILEFOLDER/BioSequences" && \
-    mkdir -p "$COMPILEFOLDER/Bio" && \
+    mkdir -p "$COMPILEFOLDER/Bio" 
 
 RUN julia -e "Base.compilecache(Base.PkgId(\"ArgParse\"))" && \
     julia -e "Base.compilecache(Base.PkgId(\"HDF5\"))" && \
