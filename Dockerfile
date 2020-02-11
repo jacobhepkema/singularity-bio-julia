@@ -1,12 +1,12 @@
 # Julia + necessary packages Dockerfile
 
-FROM julia:1.0.0
+FROM julia:1.1.0
 
 RUN apt-get update && apt-get install -y procps
 
 ENV JULIA_DEPOT_PATH=/opt/julia
 ENV JULIA_PKGDIR=/opt/julia
-ENV JULIA_VERSION=1.0.0
+ENV JULIA_VERSION=1.1.0
 
 ENV JULIA_PATH /usr/local/julia
 ENV PATH $JULIA_PATH/bin:$PATH
@@ -14,10 +14,10 @@ ENV PATH $JULIA_PATH/bin:$PATH
 RUN mkdir -p "$JULIA_DEPOT_PATH"
 
 RUN julia -e 'using Pkg; Pkg.add(["Dates", "Automa", "BufferedStreams", "Combinatorics", "IndexableBitVectors", "Twiddle",  "DataStructures", "IntervalTrees", "Parsers", "PooledArrays", "WeakRefStrings", "FilePathsBase", "LazyArrays", "Libdl", "Mmap", "CategoricalArrays", "Missings", "InvertedIndices", "Tables", "TableTraits", "IteratorInterfaceExtensions", "DataAPI", "Unicode", "SortingAlgorithms", "Reexport", "TextWrap", "Compat", "Blosc", "ArgParse", "DataFrames", "CSV", "Profile", "Random", "Statistics", "HDF5", "DelimitedFiles"])'
-RUN julia -e 'using Pkg; Pkg.Registry.add(RegistrySpec(url="https://github.com/BioJulia/BioJuliaRegistry.git"))' 
-RUN julia -e 'using Pkg; Pkg.add(["BioCore", "BioSymbols", "BioGenerics", "Bio", "BioSequences"])'
+# RUN julia -e 'using Pkg; Pkg.Registry.add(RegistrySpec(url="https://github.com/BioJulia/BioJuliaRegistry.git"))' 
+RUN julia -e 'using Pkg; Pkg.add(["BioCore", "BioSymbols", "BioGenerics", "BioSequences", "Bio"])'
 
-ENV COMPILEFOLDER /opt/julia/compiled/v1.0/
+ENV COMPILEFOLDER /opt/julia/compiled/v1.1/
 
 RUN mkdir -p "$COMPILEFOLDER/ArgParse" && \
     mkdir -p "$COMPILEFOLDER/HDF5" && \
