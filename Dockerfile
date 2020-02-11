@@ -17,7 +17,7 @@ RUN julia -e 'using Pkg; Pkg.add(["Dates", "Automa", "BufferedStreams", "Combina
 RUN julia -e 'using Pkg; Pkg.Registry.add(RegistrySpec(url="https://github.com/BioJulia/BioJuliaRegistry.git"))' 
 RUN julia -e 'using Pkg; Pkg.add(["BioCore", "BioSymbols", "BioGenerics", "Bio", "BioSequences"])'
 
-ENV COMPILEFOLDER /opt/julia/compiled/v1.2/
+ENV COMPILEFOLDER /opt/julia/compiled/v1.0/
 
 RUN mkdir -p "$COMPILEFOLDER/ArgParse" && \
     mkdir -p "$COMPILEFOLDER/HDF5" && \
