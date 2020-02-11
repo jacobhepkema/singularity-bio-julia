@@ -1,12 +1,12 @@
 # Julia + necessary packages Dockerfile
 
-FROM julia:1.2.0
+FROM julia:1.0.0
 
 RUN apt-get update && apt-get install -y procps
 
 ENV JULIA_DEPOT_PATH=/opt/julia
 ENV JULIA_PKGDIR=/opt/julia
-ENV JULIA_VERSION=1.2.0
+ENV JULIA_VERSION=1.0.0
 
 ENV JULIA_PATH /usr/local/julia
 ENV PATH $JULIA_PATH/bin:$PATH
