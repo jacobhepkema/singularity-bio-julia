@@ -13,8 +13,9 @@ ENV PATH $JULIA_PATH/bin:$PATH
 
 RUN mkdir -p "$JULIA_DEPOT_PATH"
 
-RUN julia -e 'using Pkg; Pkg.Registry.add(RegistrySpec(url="https://github.com/BioJulia/BioJuliaRegistry.git"))'
-RUN julia -e 'using Pkg; Pkg.add(["Dates", "Automa", "BioCore", "BioSymbols", "BufferedStreams", "Combinatorics", "IndexableBitVectors", "Twiddle", "BioGenerics", "DataStructures", "IntervalTrees", "Parsers", "PooledArrays", "WeakRefStrings", "FilePathsBase", "LazyArrays", "Libdl", "Mmap", "CategoricalArrays", "Missings", "InvertedIndices", "Tables", "TableTraits", "IteratorInterfaceExtensions", "DataAPI", "Unicode", "SortingAlgorithms", "Reexport", "TextWrap", "Compat", "Blosc", "ArgParse", "DataFrames", "CSV", "Profile", "Random", "Statistics", "HDF5", "Bio", "BioSequences", "DelimitedFiles"])'
+RUN julia -e 'using Pkg; Pkg.add(["Dates", "Automa", ""BufferedStreams", "Combinatorics", "IndexableBitVectors", "Twiddle",  "DataStructures", "IntervalTrees", "Parsers", "PooledArrays", "WeakRefStrings", "FilePathsBase", "LazyArrays", "Libdl", "Mmap", "CategoricalArrays", "Missings", "InvertedIndices", "Tables", "TableTraits", "IteratorInterfaceExtensions", "DataAPI", "Unicode", "SortingAlgorithms", "Reexport", "TextWrap", "Compat", "Blosc", "ArgParse", "DataFrames", "CSV", "Profile", "Random", "Statistics", "HDF5", "DelimitedFiles"])' \
+    julia -e 'using Pkg; Pkg.Registry.add(RegistrySpec(url="https://github.com/BioJulia/BioJuliaRegistry.git"))' \
+    julia -e 'using Pkg; Pkg.add(["BioCore", "BioSymbols", "BioGenerics", "Bio", "BioSequences"]
 
 ENV COMPILEFOLDER /opt/julia/compiled/v1.2/
 
